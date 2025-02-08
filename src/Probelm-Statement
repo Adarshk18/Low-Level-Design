@@ -1,0 +1,103 @@
+Live Streaming System Design
+Core Requirements:
+
+Stream live video to millions of users.
+
+Handle comments, reactions, and advertisements.
+
+Ensure high availability and performance.
+
+Key Components:
+
+Video Transformation: Convert raw video into multiple resolutions (e.g., 480p, 720p, 1080p) using a MapReduce pattern.
+
+Video Delivery: Use adaptive streaming protocols (e.g., HLS, DASH) to adjust video quality based on user bandwidth.
+
+Database: Store video metadata in SQL databases and video files in distributed file systems (e.g., S3).
+
+Caching: Cache frequently accessed video segments to reduce latency.
+
+APIs:
+
+getVideoFrame: Fetch video frames based on timestamp and device type.
+
+postComment: Allow users to post comments on videos.
+
+5. Low-Level Design (LLD)
+Focus: Detailed implementation of specific components (e.g., video playback, comment handling).
+
+Use Case Diagrams:
+
+Define user actions (e.g., play video, pause, seek).
+
+Map actions to system behaviors (e.g., fetch video frames, store comments).
+
+Class Diagrams:
+
+Define classes (e.g., Video, User, WatchedVideo) with states (data) and behaviors (methods).
+
+Example: Video class stores frames and metadata, with a method to retrieve frames by timestamp.
+
+Sequence Diagrams:
+
+Show interactions between components (e.g., user requests video → server fetches frame → returns to user).
+
+Optimize for performance (e.g., reduce network calls by caching).
+
+6. Coding the System
+Video Class:
+
+Stores video frames, metadata, and methods to retrieve frames by timestamp.
+
+Example: getFrame(timestamp) returns the frame corresponding to the requested time.
+
+User Class:
+
+Stores user details (e.g., ID, name, email).
+
+WatchedVideo Class:
+
+Tracks user interactions (e.g., video ID, user ID, seek timestamp).
+
+VideoConsumingService Class:
+
+Handles API requests (e.g., getSeekTime, getFrame).
+
+Interacts with databases and file systems to fetch data.
+
+7. Testing and Optimization
+Load Testing: Simulate high traffic to ensure the system can handle peak loads.
+
+Edge Cases: Test for unusual scenarios (e.g., network failures, invalid inputs).
+
+Performance Optimization:
+
+Use CDNs (Content Delivery Networks) to distribute static content.
+
+Implement caching to reduce database load.
+
+8. Tools and Protocols
+Network Protocols:
+
+HTTP/HTTPS: Stateless protocol for general API communication.
+
+WebRTC: Peer-to-peer protocol for real-time video streaming.
+
+HLS/DASH: Adaptive streaming protocols for video delivery.
+
+Database Solutions:
+
+SQL: For structured data (e.g., user profiles, comments).
+
+NoSQL: For scalable, unstructured data (e.g., video metadata).
+
+File Systems: For storing large files (e.g., S3, HDFS).
+
+9. Key Takeaways
+System design involves converting business requirements into scalable, reliable, and maintainable technical solutions.
+
+Design patterns (e.g., Publisher-Subscriber, MapReduce) provide reusable solutions to common problems.
+
+Low-level design focuses on detailed implementation, including class diagrams, sequence diagrams, and coding.
+
+Testing and optimization are critical to ensure system performance and reliability.
