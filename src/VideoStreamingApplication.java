@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class VideoStreamingApplication {
+public class VideoStreamingApplication {
+    public static void main(String[] args) {
+
+    }
 }
